@@ -1,0 +1,26 @@
+
+<!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+    <script>
+    	var username = sessionStorage.getItem('username')
+    	if (username == null) {
+    		username = prompt('Enter Your Username')
+    		sessionStorage.setItem('username', username)
+    	}
+    </script>
+</head>
+<body>
+	<h2>Welcome to the Chat Directory</h2>
+    <form th:action="@{/channels/create}" method="post">
+	    <div th:each="channel : ${channels}">
+    		<a th:href="@{/channels/{channelId}(channelId=${channel.channelId})}" th:text="${channel.name}"></a>
+    	</div>
+    	<input type="submit" value="Create New Channel"/>
+    </form>
+    <!-- script type="text/javascript" src="/js/welcome.js"></script> -->
+</body>
+</html>
