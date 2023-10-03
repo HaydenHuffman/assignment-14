@@ -1,20 +1,18 @@
 package com.coderscampus.chatapplication.service;
 
-import java.nio.channels.Channels;
-import java.util.List;
-
+import com.coderscampus.chatapplication.domain.Channel;
+import com.coderscampus.chatapplication.repository.ChannelRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.coderscampus.chatapplication.domain.Channel;
-import com.coderscampus.chatapplication.repository.ChannelRepository;
+import java.util.List;
 
 @Service
 public class ChannelService {
 	
 	@Autowired
 	private ChannelRepository channelRepo;
-	private Long channelId = (long) 1;
+	private Long channelId = 2L;
 
 	public Channel createNewChannel() {
 		Channel channel = new Channel();

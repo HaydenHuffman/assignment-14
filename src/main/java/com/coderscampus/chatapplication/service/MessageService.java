@@ -15,11 +15,10 @@ public class MessageService {
 
 	public void save(Message message) {
 		messageRepo.save(message);
-		
-		
 	}
 
-    public List<Message> findByChannel(Long channelId) {
+    public List<Message> getByChannelId(Long channelId) {
 		return messageRepo.findById(channelId);
     }
+
 }

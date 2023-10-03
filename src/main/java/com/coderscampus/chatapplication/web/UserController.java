@@ -1,9 +1,9 @@
 package com.coderscampus.chatapplication.web;
 
-import java.util.List;
-import java.util.Optional;
-import java.util.UUID;
-
+import com.coderscampus.chatapplication.domain.Channel;
+import com.coderscampus.chatapplication.domain.User;
+import com.coderscampus.chatapplication.service.ChannelService;
+import com.coderscampus.chatapplication.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -11,10 +11,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
-import com.coderscampus.chatapplication.domain.Channel;
-import com.coderscampus.chatapplication.domain.User;
-import com.coderscampus.chatapplication.service.ChannelService;
-import com.coderscampus.chatapplication.service.UserService;
+import java.util.List;
+import java.util.Optional;
 
 @Controller
 public class UserController {

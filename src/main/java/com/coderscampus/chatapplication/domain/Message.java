@@ -1,6 +1,8 @@
 package com.coderscampus.chatapplication.domain;
 
-public class Message {
+import java.io.Serializable;
+
+public class Message implements Serializable {
 	private String text;
 	private User user;
 	private Long channelId;
@@ -25,7 +27,14 @@ public class Message {
 	public void setUser(User user) {
 		this.user = user;
 	}
-	
-	
+
+	@Override
+	public String toString() {
+		return "Message{" +
+				"text='" + text + '\'' +
+				", user=" + user +
+				", channelId=" + channelId +
+				'}';
+	}
 }
 	
