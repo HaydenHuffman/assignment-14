@@ -3,6 +3,14 @@
 	<head>
 		<title>Channel</title>
 		<link rel="stylesheet" href="/css/channel.css">
+		<script>
+			document.addEventListener("DOMContentLoaded", ()  => {
+				var username = sessionStorage.getItem('username')
+				if (username === null) {
+					window.location.href = '/welcome'
+				}
+			})
+		</script>
 	</head>
 	<body>
 		<div class="textbox" id="messages"></div>

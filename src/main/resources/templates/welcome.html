@@ -6,11 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome</title>
     <script>
-    	var username = sessionStorage.getItem('username')
-    	if (username == null) {
-    		username = prompt('Enter Your Username')
-    		sessionStorage.setItem('username', username)
-    	}
+
+        function promptForUsername() {
+           var username = sessionStorage.getItem('username');
+
+           if (username == null || username.trim() === '') {
+               username = prompt('Enter Your Username');
+
+               if (username == null || username.trim() === '') {
+                   // If the user cancels or enters an empty username, prompt again
+                   promptForUsername();
+               } else {
+                   sessionStorage.setItem('username', username);
+               }
+           }
+       }
+
+       promptForUsername();
     </script>
 </head>
 <body>
