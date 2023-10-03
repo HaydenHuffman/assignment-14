@@ -58,8 +58,8 @@ async function getMessages () {
         .then(messages => {
           messageContainer.innerHTML = "";
                               messages.forEach(message => {
-                                  const messageElement = document.createElement("li");
-                                  messageElement.innerText = `${message.user.username}: ${message.content}`;
+                                  const messageElement = document.createElement("div");
+                                  messageElement.innerText = `${message.user.username}: ${message.text}`;
                                   messageContainer.appendChild(messageElement);
             });
         })
@@ -68,5 +68,13 @@ async function getMessages () {
         })
 
 }
+
+document.getElementById('message-input').addEventListener('keydown', function (e) {
+    if (e.key === 'Enter') {
+        e.preventDefault(); // Prevent the default behavior (e.g., newline)
+        postMessage(); // Call the postMessage function
+    }
+});
+
 
 setInterval(getMessages, 500)
