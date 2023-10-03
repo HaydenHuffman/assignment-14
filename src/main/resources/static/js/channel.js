@@ -18,7 +18,8 @@ function postMessage() {
 				headers: {
 				'Content-Type': 'application/json'
 				},
-			body: JSON.stringify(message)
+			body: JSON.stringify(message),
+			responseType: 'json'
 			})
 
     .then((response) => {

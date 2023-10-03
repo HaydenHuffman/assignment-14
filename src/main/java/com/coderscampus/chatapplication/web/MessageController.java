@@ -3,20 +3,18 @@ package com.coderscampus.chatapplication.web;
 import com.coderscampus.chatapplication.domain.Message;
 import com.coderscampus.chatapplication.service.MessageService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collections;
 import java.util.List;
 
-@Controller	
+@RestController
 public class MessageController {
 	
 	@Autowired
 	private MessageService messageService;
 
 	@GetMapping("/message/{channelId}")
-	@ResponseBody
 	public List<Message> getMessages(@PathVariable Long channelId) {
 		try {
 			List<Message> messages = messageService.getByChannelId(channelId);
@@ -28,10 +26,10 @@ public class MessageController {
 		}
 	}
 	@PostMapping("/message")
-	public String postMessage(@RequestBody Message message) {
+	public Message postMessage(@RequestBody Message message) {
 		messageService.save(message);
 		System.out.println(message);
-		return "redirect:/channels/" + message.getChannelId();
+		return message;
 		
 	}
 }
